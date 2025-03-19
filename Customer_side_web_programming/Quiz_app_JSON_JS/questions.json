@@ -1,0 +1,54 @@
+[
+	{
+		"text": "What is the most important item to Galaxy hitchhikers?",
+		"choices": [
+			{
+				"text": "Towel",
+				"points": 1
+			},
+			{
+				"text": "Toothbrush",
+				"points": 0
+			},
+			{
+				"text": "Guidebook",
+				"points": 0
+			}
+		]
+	},
+	{
+		"text": "When did James Webb Telescope launch to space?",
+		"choices": [
+			{
+				"text": "2019",
+				"points": 0
+			},
+			{
+				"text": "2021",
+				"points": 1
+			},
+			{
+				"text": "2023",
+				"points": 0
+			}
+		]
+	},
+	{
+		"text": "What is THE question to the ultimate answer 42?",
+		"choices": [
+			{
+				"text": "What is the answer to life, the universe and everything?",
+				"points": 0
+			},
+			{
+				"text": "What do you get if you multiply six by nine?",
+				"points": 0
+			},
+			{
+				"text": "The question remains unknown",
+				"points": 1
+			}
+		]
+	}
+
+]

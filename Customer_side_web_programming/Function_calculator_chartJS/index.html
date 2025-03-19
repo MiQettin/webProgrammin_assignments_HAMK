@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , shrink-to-fit=no">
+    <meta name="author" content="Mirka Romppanen" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<!--Chart.js universal module versio -> Ei tarvetta toteutuksessa ECMA script moduulille -> Toimii ilman import syntaxia-->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        padding: 5px;
+    }
+    
+    canvas {
+        max-height: 40vh; /*Maksimikorkeus % viewportista*/
+    }
+</style>
+    <title>Function draw</title>
+</head>
+<body>
+    <h1>Function Calculator</h1>
+    <form id="form-container">
+        <table>
+            <tr>
+                <td><label for="fx">Function f(x) return value:</label></td>
+                <td><input type="text" id="fx" name="fx" required></td>
+            </tr>
+            <tr>
+                <td><label for="start-range">Start of x range:</label></td>
+                <td><input type="number" id="start-range" step="any" name="start-range" required></td>
+            </tr>
+            <tr>
+                <td><label for="end-range">End of x range:</label></td>
+                <td><input type="number" id="end-range" name="end-range" step="any" required></td>
+            </tr>
+            <tr>
+                <td><label for="x-step">x step:</label></td>
+                <td><input type="number" id="x-step" name="x-step" step="any" required></td>
+            </tr>
+            <tr>
+                <td><label for="y-scale">y scale factor:</label></td>
+                <td><input type="number" id="y-scale" name="y-scale" step="any" required></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Calculate</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <canvas id="drawChart"></canvas>
+    <div id="results"></div>
+    <div id="link-container"></div>
+    <script src="script.js"></script> <!--Scripti täällä + DOM estää elementti virheet-->
+</body>
+</html>

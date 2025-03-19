@@ -1,0 +1,153 @@
+.wrapper {
+  display: flex;  
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  margin: 10px;
+
+} 
+.wrapper > * {
+  padding: 10px 0 10px 0;
+}
+.responsive {
+  max-width: 300px;
+  height: auto;
+  object-fit: fill;
+  border: 4px double rgb(9, 3, 64);
+}
+.img-wrapper {
+  display: flex;
+  flex-wrap: wrap; 
+  flex-direction: row;
+  justify-content:center;
+  gap: 5px;
+}
+.header-1 {
+  background-image: linear-gradient(to left, rgb(94, 183, 219), rgb(136, 112, 208, 0.9));/*background-color: rgb(136, 112, 208, 0.9);*/
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 2%;
+  text-shadow: 3px 3px 2px black;
+}
+.header-2 {
+  border-bottom: 2px solid black;
+  margin: 0 auto;
+  margin-bottom: 1%;
+  text-align: center;
+}
+.article-1, .article-2 {
+  background-color:rgb(226, 221, 218); /*Contrast Ratio 15.58:1 mustan kanssa*/
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  column-gap: 10px;
+}
+.container-2 {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  column-gap: 10px;
+  padding: 0;
+} 
+.inner {
+  font-size: 1em;
+  text-align: left;
+  padding: 2% 2% 2% 2%;
+}
+.inner-1 {
+  padding: 0;
+  border: none; /*Kumotaan muille img luotu border, vähemmän koodia tähän tyyliin*/
+}
+.inner-2 {
+  width: 48%;
+  background-color: #DFCCFB;
+  color: black; /*Contrast Ratio 5.85:1, mieti jos vaalennat, täyttää vaatimukset, voisi olla parempi */
+  /*Painamattoman linkin kontrasti 7.42:1, painetun */
+}
+.inner-3 {
+  background-color: #BAE1FF;
+  color: black; /*Contrast Ratio 8.94:1*/
+  width: 48%;
+}
+.inner-4 {
+  background-color: #FFEEC9; /*Kontrasti + linkki kontrasti ok, tarkistettu oletusvärien kanssa*/
+  width:62%;
+}
+.inner-5 {
+  width: 48%;
+  background-color: #5afff2; /*Linkki kontrasti ok, tarkistettu oletusvärien kanssa*/
+}
+
+li {margin: 10px 0;} /*Listat näyttävät huomattavasti selkeämmiltä marginin kanssa!*/
+
+.article {
+  text-align: justify;
+  padding: 1% 2% 0 2%;
+}
+
+@media screen and (max-width: 800px) { /*ipad air ja pro yli tämän, näyttää hyvältä myös row!*/
+  body {
+    width: 100vw;
+    margin-top: 0;
+  }
+  .header-1 {
+    font-size: 1.5rem;
+    width: 96%;
+  }
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    flex: 1 100%;
+    margin: 0 auto;
+    padding: 0 2% 0 2%;
+    gap: 10px; /*Tämä pitää elementit irtaalla toisistaan, älä poista*/
+  }
+  .header-2 {
+    font-size: 1.2rem;
+    padding-bottom: 2%;
+  }
+  .container { 
+    flex: 1 100%;
+    flex-direction: column; /*Elementit allekkain pienellä näytöllä*/ 
+    padding: 0;
+    gap: 5px;
+  }
+  .container-2 {
+    flex: 1 100%;
+    flex-direction: column;
+    padding: 0;
+    gap: 5px;
+  }
+  .inner {
+    width: auto;
+
+  } 
+  .inner-1 {
+    display: none; /*Kuva1 ei käytössä pienellä näytöllä liikaa tavaraa, ei sisällä olennaista tietoa, joten voidaan piilottaa*/
+  }
+  .img-wrapper {
+    flex-direction: column;
+  }
+  .article-2 {
+    margin: 0;
+  }
+} 
+@media screen and (min-width: 1000px) {
+  body {  
+    max-width: 90vw;
+    padding: 10px;
+    border: 3px double rgb(94, 183, 219); 
+  }
+  
+}
+body {
+  background: url("img/bg_image_1.jpg");;
+  font-size: 16px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

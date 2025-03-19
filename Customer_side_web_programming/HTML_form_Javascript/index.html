@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fi-en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mirka Romppanen" />
+    <title>Assignment #1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--    <form name="basicInfo" onsubmit="validateForm(event)" action=""> Ei toimi kun js erillisessä tiedostossa-->
+    <form id="basicInfo">
+      <table>
+        <tr>
+          <td><label for="name">Name: </label></td>
+          <td>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autofocus
+              placeholder="Enter first name and last name"
+              required
+              size="60"
+              maxlength="80"
+              pattern="^(?!.*[&lt;>])+$" 
+              title="First name and last name, no special characters. Only apostrophe or space between name"
+            />
+            <!--Kielto <>#$&"% -> Jätettiin heittomerkit, koska useat ulkomaalaiset sukunimet sisältävät niitä. < korvatu &lt; pakotetaan syöttämään sana+sana-->
+          </td>
+        </tr>
+        <tr>
+          <!--Password, a required password field, accepts 8-20 characters: a-z, A-Z, 0-9 and following punctuation characters _,.-:;?!
+Password again, same specification as above, must match the above field in value Ota tämä huomioon regex rakennuksessa-->
+          <td><label for="password">Password: </label></td>
+          <!--Pattern (regex) tarkistamaan, että syöttö on oikein-->
+          <td>
+            <input
+              type="password"
+              id="password"
+              pattern="^[\w.,-:;?!]{8,20}$"
+              title="Length 8-20 characters, a-z, A-Z, 0-9 and _.,-:;?! are allowed"
+              required
+            />
+            <!--REGEX explained in title text-->
+          </td>
+        </tr>
+        <tr>
+          <td><label for="password-confirm">Confirm password: </label></td>
+          <!--Olisi parempi onblur/blur käyttäjäystävällisyyden takaamiseksi eli tarkistaa kentästä siirtymisen jälkeen!-->
+          <td>
+            <input
+              type="password"
+              id="password-confirm"
+              name="password-confirm"
+              min="8"
+              max="20"
+              pattern="^[\w.,-:;?!]{8,20}$"
+              title="Length 8-20 characters, a-z, A-Z, 0-9 and _.,-:;?! are allowed"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              id="gender-m"
+              required
+            />
+            <!--Vaikka tulee required vain tähän -> koskee koko aluetta-->
+            <label for="gender-m">Male</label>
+            <input type="radio" name="gender" value="female" id="gender-f" />
+            <label for="gender-f">Female</label>
+            <input type="radio" name="gender" value="other" id="gender-o" />
+            <label for="gender-o">Other</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Hobbies:</td>
+          <td>
+            <input type="checkbox" name="hobbies" value="games" id="games" />
+            <label for="games">Games</label>
+            <input type="checkbox" name="hobbies" value="music" id="music" />
+            <label for="music">Music</label>
+            <input type="checkbox" name="hobbies" value="sports" id="sports" />
+            <label for="sports">Exercising</label>
+            <input type="checkbox" name="hobbies" value="TV" id="TV" />
+            <label for="TV">TV</label>
+          </td>
+        </tr>
+        <tr>
+          <!--Jos jää aikaa lisää JS:llä dynaamiset min ja max arvot, ei kukaan ole syntynyt tänään tulevaisuudessa-->
+          <td><label for="birthdate">Birthdate: </label></td>
+          <td><input type="date" id="birthdate" name="birthdate" /></td>
+        </tr>
+        <tr>
+          <td><label for="height">Height: </label></td>
+          <td>
+            <!--ID pitää olla CamelCase, jotta oninput toimii!-->
+            <input
+              type="range"
+              id="heightRange"
+              min="40"
+              max="300"
+              step="1"
+              oninput="heightValue.value = heightRange.value"
+            />
+            <input
+              type="number"
+              name="height"
+              id="heightValue"
+              value="175"
+              min="40"
+              max="300"
+              step="1"
+              oninput="heightRange.value = heightValue.value"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="color-selector">Favorite color: </label></td>
+          <td>
+            <input type="color" id="color-selector" name="favorite-color" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="country">Home country: </label></td>
+          <td>
+            <select name="country" id="country-selector">
+              <!--Muutettu muotoilu videon mukaiseksi-->
+              <option value="fi" selected>Finland</option>
+              <option value="ru">Russia</option>
+              <optgroup label="Scandinavian countries">
+                <option value="dk">Denmark</option>
+                <option value="no">Norway</option>
+                <option value="se">Sweden</option>
+              </optgroup>
+              <optgroup label="Baltic countries">
+                <option value="ee">Estonia</option>
+                <option value="lv">Latvia</option>
+                <option value="lt">Lithuania</option>
+              </optgroup>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="profession">Profession: </label></td>
+          <td>
+            <input
+              type="text"
+              id="profession-input"
+              name="profession"
+              list="profession-datalist"
+            />
+            <datalist id="profession-datalist">
+              <option value="Doctor"></option>
+              <option value="Nurse"></option>
+              <option value="Teacher"></option>
+              <option value="Engineer"></option>
+            </datalist>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="message">Message: </label></td>
+          <td>
+            <textarea
+              id="message-input"
+              name="message"
+              rows="6"
+              cols="60"
+              placeholder="Type your message here. Max 1000 characters."
+              maxlength="1000"
+              required
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <!--Tyhjä sarake buttonin siirtoon-->
+          <td><input type="submit" value="Send" /></td>
+        </tr>
+      </table>
+    </form>
+    <hr />
+    <h3>Result:</h3>
+    <output id="id-result"></output>
+    <!--JS -> tulostetaan -->
+    <script src="form_basicInfo.js"></script>
+  </body>
+</html>
